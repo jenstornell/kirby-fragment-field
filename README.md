@@ -2,17 +2,13 @@
 
 ## Snippets instead of new fields
 
-With this plugin you don't need to create a new field every time you need something simple in the panel.
+With this plugin you don't need to create a new field every time you need something simple for the panel.
 
 This field calls for a snippet that you have set in your blueprint. That way you only need one field, the fragment field.
 
 ## Instructions
 
 Place the fragment field in `site/fields`.
-
-1. Create a snippet file.
-1. Add css and javascript, if needed.
-1. Add the snippet uri in your blueprint.
 
 ## 1. Create a snippet file
 
@@ -23,6 +19,8 @@ The `site/snippets` folder is the default path. If you don't like the root path,
 ```
 c::set( 'fragment.snippet.uri', kirby()->roots()->snippets() );
 ```
+
+Inside the snippet file you can use the `$field` and `$page` objects.
 
 ### `$field` object
 
