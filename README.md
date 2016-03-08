@@ -1,10 +1,10 @@
 # Kirby Fragment Field
 
-## Use a snippet instead of creating a new field
+## Snippets instead of new fields
 
-I found myself creating new panel fields every time I needed something for the panel. With this plugin you don't need to do that.
+With this plugin you don't need to create a new field every time you need something simple in the panel.
 
-This field call a snippet that you have set in your blueprint. That way you only need one field, the fragment field.
+This field calls for a snippet that you have set in your blueprint. That way you only need one field, the fragment field.
 
 ## Instructions
 
@@ -89,3 +89,7 @@ If the `uri` is `my-fragment`, the by default it will look for `site/snippets/my
 ## Requirements
 
 This plugin is tested with Kirby 2.3 but it will probably work with 2.2 as well.
+
+## Limitations
+
+The fragment field is made for simplicity, not for complex fields with stuff like routes and Ajax.
