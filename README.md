@@ -1,20 +1,24 @@
 # Kirby Fragment Field
 
-## For custom panel stuff, use a snippet
+## Use a snippet instead of creating a new field
 
-I found myself creating new panel fields from scratch every time I needed something in the panel. With this plugin you can instead just call a snippet.
+I found myself creating new panel fields every time I needed something for the panel. With this plugin you don't need to do that.
+
+This field call a snippet that you have set in your blueprint. That way you only need one field, the fragment field.
 
 ## Instructions
 
-Place the fragment field in `site/fields` first.
+Place the fragment field in `site/fields`.
 
 1. Create a snippet file.
 1. Add css and javascript, if needed.
-1. Add the snippet in your blueprint.
+1. Add the snippet uri in your blueprint.
 
 ## 1. Create a snippet file
 
-The `site/snippets` folder is the default path, but you can create your snippet anywhere by changing this config.php:
+First you need to create a snippet file.
+
+The `site/snippets` folder is the default path. If you don't like the root path, you can change it in your config.php:
 
 ```
 c::set( 'fragment.snippet.uri', kirby()->roots()->snippets() );
@@ -80,7 +84,7 @@ fields:
 - Type needs to be `fragment`.
 - The `uri` is the location of your snippet file.
 
-If the `uri` is `my-fragment`, the by default it will look for `site/snippets/my-fragment.php`. You can change the path as described in previous steps.
+If the `uri` is `my-fragment`, the by default it will look for `site/snippets/my-fragment.php`. You can change this path as described in previous steps.
 
 ## Requirements
 
