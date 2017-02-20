@@ -27,18 +27,12 @@ In `config.php` (or a plugin):
 kirby()->hook('pluginLogicField', function($field, $page) {
 	echo $page->title();
 	echo $field->name();
+
+	//snippet('some-logic', ['field' => $field, 'page' => $page]);
 });
 ```
-
-### Code with snippet (optional alternative)
 
 If you don't like inline html you can replace it with a [snippet](https://getkirby.com/docs/templates/snippets).
-
-```php
-kirby()->hook('pluginLogicField', function($field, $page) {
-	snippet('some-logic', ['field' => $field, 'page' => $page]);
-});
-```
 
 ## Requirements
 
