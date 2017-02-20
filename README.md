@@ -2,9 +2,9 @@
 
 *Version 1.0.0*
 
-Add a custom field without building it.
+Inject your logic to a custom field.
 
-**[Installation instructions](docs/install.md)**
+**[- Installation instructions - ](docs/install.md)**
 
 ## Usage
 
@@ -13,9 +13,9 @@ Add a custom field without building it.
 Use the type logic:
 
 ```yaml
-fields
-  my_field:
-    title: My title
+fields:
+  my_logic_field:
+    title: My logic field
     type: logic
 ```
 
@@ -24,19 +24,20 @@ fields
 In `config.php` put this code:
 
 ```php
-<?php
-kirby()->hook('pluginLogicField', function($field, $page) { ?>
-	<strong>Title:</strong><?php echo $page->title(); ?><br>
-	<strong>Field name:</strong><?php echo $field->name(); ?>
-<?php }); ?>
+kirby()->hook('pluginLogicField', function($field, $page) {
+	echo $page->title();
+	echo $field->name();
+});
 ```
 
-If you don't like inline html you can replace it with a snippet.
+If you don't like inline html you can replace it with a [snippet](https://getkirby.com/docs/templates/snippets).
 
-You can also use the code inside of a plugin. In that case you need to put this code before the hook:
+You can also use the code inside of a plugin:
 
 ```php
 kirby()->plugin('kirby-logic-field');
+
+// Hook code goes here
 ```
 
 ## Requirements
