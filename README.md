@@ -30,7 +30,19 @@ kirby()->hook('pluginLogicField', function($field, $page) {
 });
 ```
 
+## Advanced (optional alternatives)
+
+### Code with snippet
+
 If you don't like inline html you can replace it with a [snippet](https://getkirby.com/docs/templates/snippets).
+
+```php
+kirby()->hook('pluginLogicField', function($field, $page) {
+	snippet('some-logic', ['field' => $field, 'page' => $page]);
+});
+```
+
+### As plugin
 
 You can also use the code inside of a plugin:
 
