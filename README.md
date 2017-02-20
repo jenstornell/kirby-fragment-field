@@ -21,7 +21,7 @@ fields:
 
 ### Code
 
-In `config.php` put this code:
+In `config.php` (or a plugin):
 
 ```php
 kirby()->hook('pluginLogicField', function($field, $page) {
@@ -30,9 +30,7 @@ kirby()->hook('pluginLogicField', function($field, $page) {
 });
 ```
 
-## Advanced (optional alternatives)
-
-### Code with snippet
+### Code with snippet (optional alternative)
 
 If you don't like inline html you can replace it with a [snippet](https://getkirby.com/docs/templates/snippets).
 
@@ -40,16 +38,6 @@ If you don't like inline html you can replace it with a [snippet](https://getkir
 kirby()->hook('pluginLogicField', function($field, $page) {
 	snippet('some-logic', ['field' => $field, 'page' => $page]);
 });
-```
-
-### As plugin
-
-You can also use the code inside of a plugin. Then you need to force load the plugin first:
-
-```php
-kirby()->plugin('kirby-logic-field');
-
-// Hook code goes here
 ```
 
 ## Requirements
