@@ -1,93 +1,58 @@
-# Kirby Fragment Field
+# Kirby Logic Field
 
-## Snippets instead of new fields
+*Version 1.0.0*
 
-With this plugin you don't need to create a new field every time you need something simple for the panel.
+Add a custom field without building it.
 
-This field calls for a snippet that you have set in your blueprint. That way you only need one field, the fragment field.
+**[Installation instructions](docs/install.md)**
 
-## Instructions
+## Usage
 
-Place the fragment field in `site/fields`.
+### Blueprint
 
-## 1. Create a snippet file
-
-First you need to create a snippet file.
-
-The `site/snippets` folder is the default path. If you don't like the root path, you can change it in your config.php:
-
-```
-c::set( 'fragment.snippet.uri', kirby()->roots()->snippets() );
-```
-
-Inside the snippet file you can use the `$field` and `$page` objects.
-
-### `$field` object
-
-All the field variables are available through the `$field` object and you can use them like this:
-
-```php
-echo $field->type();
-```
-
-### `$page` object
-
-All the page variables are available through the `$page` object and you can use them like this:
-
-```php
-echo $page->title();
-```
-
-## 2. Add css and javascript, if needed
-
-You can add css and javascript and it's done inside the snippet file, like this:
-
-```php
-// Single css file
-echo $field->js( 'assets/css/style.css' );
-
-// Single js file
-echo $field->js( 'assets/css/script.js' );
-
-// Multiple css files
-echo $field->css( array(
-    'assets/css/style1.css',
-    'assets/css/style2.css'
-));
-
-// Multiple js files
-echo $field->js( array(
-    'assets/css/script1.js',
-    'assets/css/script2.js'
-));
-```
-
-If you don't like the root urls of the assets, you can change them in your config.php:
-
-```php
-c::set( 'fragment.css.uri', u() );
-c::set( 'fragment.js.uri', u() );
-```
-
-## 3. Blueprint
+Use the type logic:
 
 ```yaml
-fields:
-  my_fragment:
-    type: fragment
-    uri: my-fragment
+fields
+  my_field:
+    title: My title
+    type: logic
 ```
 
-- Key can be `my_fragment` or something else of your choice.
-- Type needs to be `fragment`.
-- The `uri` is the location of your snippet file.
+### Code
 
-If the `uri` is `my-fragment`, the by default it will look for `site/snippets/my-fragment.php`. You can change this path as described in previous steps.
+In `config.php` put this code:
+
+```php
+<?php
+kirby()->hook('pluginLogicField', function($field, $page) { ?>
+	<strong>Title:</strong><?php echo $page->title(); ?><br>
+	<strong>Field name:</strong><?php echo $field->name(); ?>
+<?php }); ?>
+```
+
+If you don't like inline html you can replace it with a snippet.
+
+You can also use the code inside of a plugin. In that case you need to put this code before the hook:
+
+```php
+kirby()->plugin('kirby-logic-field');
+```
 
 ## Requirements
 
-This plugin is tested with Kirby 2.3 but it will probably work with 2.2 as well.
+- [**Kirby**](https://getkirby.com/) 2.4.1+
 
-## Limitations
+## Disclaimer
 
-The fragment field is made for simplicity, not for complex fields with stuff like routes and Ajax.
+This plugin is provided "as is" with no guarantee. Use it at your own risk and always test it yourself before using it in a production environment. If you find any issues, please [create a new issue](https://github.com/jenstornell/plugin-name/issues/new).
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+It is discouraged to use this plugin in any project that promotes racism, sexism, homophobia, animal abuse, violence or any other form of hate speech.
+
+## Credits
+
+- [Jens Törnell](https://github.com/jenstornell)
