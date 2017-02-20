@@ -2,7 +2,7 @@
 
 *Version 1.0.0*
 
-Inject your logic to a custom field.
+Inject your logic into a custom field.
 
 **[- Installation instructions - ](docs/install.md)**
 
@@ -10,7 +10,7 @@ Inject your logic to a custom field.
 
 ### Blueprint
 
-Use the type logic:
+Set the `type` to `logic`:
 
 ```yaml
 fields:
@@ -44,7 +44,7 @@ kirby()->hook('pluginLogicField', function($field, $page) {
 
 ### As plugin
 
-You can also use the code inside of a plugin:
+You can also use the code inside of a plugin. Then you need to force load the plugin first:
 
 ```php
 kirby()->plugin('kirby-logic-field');
