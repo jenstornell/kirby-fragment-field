@@ -1,5 +1,9 @@
 ## Changelog
 
+**1.1**
+
+- Replaced hook with a `c::set` option. The syntax is now even shorter.
+
 **1.0**
 
 - Complete rewrite

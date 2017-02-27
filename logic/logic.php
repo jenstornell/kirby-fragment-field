@@ -1,14 +1,12 @@
 <?php
 class LogicField extends BaseField {
 	public function input() {
-		ob_start();
-		kirby()->trigger('pluginLogicField', array(
-			$this,
-			$this->page(),
-		));
-		$out = ob_get_contents();
-		ob_end_clean();
+		return $this->hook($this);
+	}
 
-		return $out;
+	public function hook($field) {
+		$hook = c::get('plugin.logic.field');
+		if(is_callable($hook)) $callback = call($hook, $field);
+		if($callback) return $callback;
 	}
 }

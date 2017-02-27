@@ -2,7 +2,7 @@
   "name": "kirby-logic-field",
   "description": "Kirby CMS custom logic field",
   "author": "Jens Törnell <jens.tornell@gmail.com>",
-  "version": "0.1",
+  "version": "1.1",
   "type": "kirby-plugin",
   "license": "MIT"
 }

@@ -1,10 +1,10 @@
 # Kirby Logic Field
 
-*Version 1.0.0*
+*Version 1.1*
 
 Inject your logic into a custom field.
 
-**[- Installation instructions - ](docs/install.md)**
+**[Installation instructions](docs/install.md)**
 
 ## Usage
 
@@ -24,11 +24,8 @@ fields:
 In `config.php` (or a plugin):
 
 ```php
-kirby()->hook('pluginLogicField', function($field, $page) {
-	echo $page->title();
-	echo $field->name();
-
-	//snippet('some-logic', ['field' => $field, 'page' => $page]);
+c::set('plugin.logic.field', function($field) {
+  return '<p>' . $field->name() . ' ' . $field->page->title() . '</p>';
 });
 ```
 
