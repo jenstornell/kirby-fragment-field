@@ -1,12 +1,10 @@
 # Kirby Logic Field
 
-*Version 1.1*
+*Version 1.1 [Changelog](docs/changelog.md)*
 
 Inject your logic into a custom field.
 
 **[Installation instructions](docs/install.md)**
-
-[Changelog](docs/changelog)
 
 ## Usage
 
