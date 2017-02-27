@@ -6,6 +6,8 @@ Inject your logic into a custom field.
 
 **[Installation instructions](docs/install.md)**
 
+[Changelog](docs/changelog)
+
 ## Usage
 
 ### Blueprint
