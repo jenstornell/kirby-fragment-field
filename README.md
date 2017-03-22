@@ -37,7 +37,7 @@ If you don't like inline html you can replace it with a [snippet](https://getkir
 
 ```php
 c::set('plugin.logic.field', function($field, $page) {
-  return snippet('logic-' . $field->page->intendedTemplate(), ['field' => $field, 'page' => $page], true);
+  return snippet('logic-' . $page->intendedTemplate(), ['field' => $field, 'page' => $page], true);
 });
 ```
 
