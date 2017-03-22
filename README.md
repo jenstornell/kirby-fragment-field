@@ -1,6 +1,6 @@
 # Kirby Logic Field
 
-*Version 1.1 [Changelog](docs/changelog.md)*
+*Version 1.2 [Changelog](docs/changelog.md)*
 
 Inject your logic into a custom field.
 
@@ -21,15 +21,29 @@ fields:
 
 ### Code
 
+**As a config**
+
 In `config.php` (or a plugin):
 
 ```php
-c::set('plugin.logic.field', function($field) {
-  return '<p>' . $field->name() . ' ' . $field->page->title() . '</p>';
+c::set('plugin.logic.field', function($field, $page) {
+  return '<p>' . $field->name() . ' ' . $page->title() . '</p>';
 });
 ```
 
+**As a snippet**
+
 If you don't like inline html you can replace it with a [snippet](https://getkirby.com/docs/templates/snippets).
+
+```php
+c::set('plugin.logic.field', function($field, $page) {
+  return snippet('logic-' . $field->page->intendedTemplate(), ['field' => $field, 'page' => $page], true);
+});
+```
+
+In most cases the filename should be something like `logic-default.php` for the default template.
+
+You have access to `$field` and `$page` in the snippet.
 
 ## Requirements
 
