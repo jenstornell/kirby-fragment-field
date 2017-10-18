@@ -15,7 +15,7 @@ Set the `type` to `logic`:
 ```yaml
 fields:
   my_logic_field:
-    title: My logic field
+    label: My logic field
     type: logic
 ```
 
